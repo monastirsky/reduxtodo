@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo, chengeInput } from "../actions/index";
+import { addTodo, chengeInput } from "../redux/actions/index";
 
 export default function Input() {
   let inputText = useSelector((state) => state.input);

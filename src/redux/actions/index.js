@@ -1,3 +1,6 @@
+// types.js
+// export const CHANGE_INPUT = 'CHANGE-INPUT'
+
 export const addTodo = (value) => {
   const id = Math.random();
   return {

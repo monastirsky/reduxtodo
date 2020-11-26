@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { chengeFilter } from "../actions/index";
+import { chengeFilter } from "../redux/actions/index";
 
 export default function Filter() {
   const dispatch = useDispatch();

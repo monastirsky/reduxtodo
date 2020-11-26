@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { chengeDisplay } from "../actions/index";
+import { chengeDisplay } from "../redux/actions/index";
 
 export default function Futer() {
   const status = useSelector((state) => state.display);

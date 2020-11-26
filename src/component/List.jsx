@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { chengeStatus, deletElement } from "../actions/index";
+import { chengeStatus, deletElement } from "../redux/actions/index";
 
 const prepareLsit = (list, display, search) => {
   if (display === "all") {
