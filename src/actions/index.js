@@ -26,3 +26,17 @@ export const deletElement = (id) => {
     id,
   };
 };
+
+export const chengeDisplay = (status) => {
+  return {
+    type: "CHANGE-DISPLAY",
+    status,
+  };
+};
+
+export const chengeFilter = (text) => {
+  return {
+    type: "CHENGE-FILTER",
+    text,
+  };
+};

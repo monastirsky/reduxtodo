@@ -1,6 +1,7 @@
 import Input from "./component/Input";
 import List from "./component/List";
 import Footer from "./component/Futer";
+import Filter from "./component/Filter";
 function App() {
   return (
     <div className="App container">
@@ -8,6 +9,7 @@ function App() {
       <Input />
       <List />
       <Footer />
+      <Filter />
     </div>
   );
 }

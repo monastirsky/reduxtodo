@@ -8,7 +8,8 @@ export default function Input() {
   const dispatch = useDispatch();
 
   const onChange = (event) => {
-    dispatch(chengeInput(event.target.value));
+    const inputText = event.target.value;
+    dispatch(chengeInput(inputText));
   };
 
   const onSubmit = (event) => {
