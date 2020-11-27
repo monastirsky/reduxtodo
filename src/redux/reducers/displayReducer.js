@@ -1,6 +1,8 @@
+import { CHANGE_DISPLAY } from "../types";
+
 const displayReducer = (state = "all", action) => {
   switch (action.type) {
-    case "CHANGE-DISPLAY":
+    case CHANGE_DISPLAY:
       return action.status;
     default:
       return state;

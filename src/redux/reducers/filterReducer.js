@@ -1,6 +1,8 @@
+import { CHANGE_FILTER } from "../types";
+
 const filterReduser = (state = "", action) => {
   switch (action.type) {
-    case "CHENGE-FILTER":
+    case CHANGE_FILTER:
       return action.text;
     default:
       return state;
