@@ -1,12 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export interface iTask {
+  id: number;
+  text: string;
+  status: boolean;
+}
+
 const todoSlice = createSlice({
   name: "todo",
-  initialState: [],
+  initialState: [] as Array<iTask>,
   reducers: {
     ADD_TODO: (state, action) => {
       const id = Math.random();
-      const task = { text: action.payload, status: false, id };
+      const task: iTask = { text: action.payload, status: false, id };
       state.push(task);
     },
     DELETE_TODO: (state, action) =>

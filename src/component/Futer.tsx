@@ -1,20 +1,24 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { iStore } from "../redux/reducers";
 import displaySlice from "../redux/reducers/displayReducer";
+import { iTask } from "../redux/reducers/todoReducer";
 
 export default function Futer() {
-  const status = useSelector((state) => state.display);
-  const list = useSelector((state) => state.todo);
+  const status = useSelector((state: iStore) => state.display);
+  const list = useSelector((state: iStore) => state.todo);
   const dispatch = useDispatch();
 
-  const chengeShow = (event) => {
+  const chengeShow = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newDisplayStatus = event.target.value;
     dispatch(displaySlice.actions.CHANGE_DISPLAY(newDisplayStatus));
   };
   return list.length ? (
     <div>
       <div>
-        <p>Task left: {list.filter((element) => !element.status).length}</p>
+        <p>
+          Task left: {list.filter((element: iTask) => !element.status).length}
+        </p>
       </div>
       <div className="center">
         <label>

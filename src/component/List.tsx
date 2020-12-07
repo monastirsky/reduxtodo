@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import todoSlice from "../redux/reducers/todoReducer";
+import { iStore } from "../redux/reducers";
+import todoSlice, { iTask } from "../redux/reducers/todoReducer";
 
-const prepareLsit = (list, display, search) => {
+const prepareLsit = (list: Array<iTask>, display: string, search: string) => {
   if (display === "all") {
     return list.filter((element) => element.text.includes(search));
   } else if (display === "checked") {
@@ -17,21 +18,21 @@ const prepareLsit = (list, display, search) => {
 };
 
 export default function List() {
-  const display = useSelector((state) => state.display);
-  const search = useSelector((state) => state.filter);
+  const display = useSelector((state: iStore) => state.display);
+  const search = useSelector((state: iStore) => state.filter);
   const list = prepareLsit(
-    useSelector((state) => state.todo),
+    useSelector((state: iStore) => state.todo),
     display,
     search
   );
 
   const dispatch = useDispatch();
 
-  const onChange = (id) => {
+  const onChange = (id: number) => {
     dispatch(todoSlice.actions.CHANGE_TODO(id));
   };
 
-  const onClick = (id) => {
+  const onClick = (id: number) => {
     dispatch(todoSlice.actions.DELETE_TODO(id));
   };
 
