@@ -1,14 +1,14 @@
 import { combineReducers } from "redux";
-import displayReducer from "./displayReducer";
-import filterReducer from "./filterReducer";
-import todoReducer from "./todoReducer";
-import inputReducer from "./inputReducer";
+import displaySlice from "./displayReducer";
+import filterSlice from "./filterReducer";
+import inputSlice from "./inputReducer";
+import todoSlice from "./todoReducer";
 
 const allReduser = combineReducers({
-  display: displayReducer,
-  filter: filterReducer,
-  todo: todoReducer,
-  input: inputReducer,
+  display: displaySlice.reducer,
+  filter: filterSlice.reducer,
+  todo: todoSlice.reducer,
+  input: inputSlice.reducer,
 });
 
 export default allReduser;

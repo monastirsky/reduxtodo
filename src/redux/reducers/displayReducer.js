@@ -1,12 +1,14 @@
-import { CHANGE_DISPLAY } from "../types";
+import { createSlice } from "@reduxjs/toolkit";
 
-const displayReducer = (state = "all", action) => {
-  switch (action.type) {
-    case CHANGE_DISPLAY:
-      return action.status;
-    default:
-      return state;
-  }
-};
+const displaySlice = createSlice({
+  name: "display",
+  initialState: "all",
+  reducers: {
+    CHANGE_DISPLAY: (state, action) => {
+      console.log(state);
+      return action.payload;
+    },
+  },
+});
 
-export default displayReducer;
+export default displaySlice;

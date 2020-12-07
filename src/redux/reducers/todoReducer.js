@@ -1,20 +1,24 @@
-import { ADD_TODO, CHANGE_TODO, DELETE_TODO } from "../types";
+import { createSlice } from "@reduxjs/toolkit";
 
-const todoReducer = (state = [], action) => {
-  switch (action.type) {
-    case ADD_TODO:
-      return [...state, action.task];
-    case DELETE_TODO:
-      return state.filter((element) => element.id !== action.id);
-    case CHANGE_TODO:
-      return state.map((element) => {
-        if (element.id === action.id) {
+const todoSlice = createSlice({
+  name: "todo",
+  initialState: [],
+  reducers: {
+    ADD_TODO: (state, action) => {
+      const id = Math.random();
+      const task = { text: action.payload, status: false, id };
+      state.push(task);
+    },
+    DELETE_TODO: (state, action) =>
+      state.filter((element) => element.id !== action.payload),
+    CHANGE_TODO: (state, action) => {
+      state = state.map((element) => {
+        if (element.id === action.payload) {
           element.status = !element.status;
         }
         return element;
       });
-    default:
-      return state;
-  }
-};
-export default todoReducer;
+    },
+  },
+});
+export default todoSlice;

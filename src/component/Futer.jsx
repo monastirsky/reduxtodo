@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { chengeDisplay } from "../redux/actions/index";
+import displaySlice from "../redux/reducers/displayReducer";
 
 export default function Futer() {
   const status = useSelector((state) => state.display);
@@ -9,7 +9,7 @@ export default function Futer() {
 
   const chengeShow = (event) => {
     const newDisplayStatus = event.target.value;
-    dispatch(chengeDisplay(newDisplayStatus));
+    dispatch(displaySlice.actions.CHANGE_DISPLAY(newDisplayStatus));
   };
   return list.length ? (
     <div>

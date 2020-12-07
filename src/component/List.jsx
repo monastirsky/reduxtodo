@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { chengeStatus, deletElement } from "../redux/actions/index";
+import todoSlice from "../redux/reducers/todoReducer";
 
 const prepareLsit = (list, display, search) => {
   if (display === "all") {
@@ -28,11 +28,11 @@ export default function List() {
   const dispatch = useDispatch();
 
   const onChange = (id) => {
-    dispatch(chengeStatus(id));
+    dispatch(todoSlice.actions.CHANGE_TODO(id));
   };
 
   const onClick = (id) => {
-    dispatch(deletElement(id));
+    dispatch(todoSlice.actions.DELETE_TODO(id));
   };
 
   return list.length ? (

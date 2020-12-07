@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTodo, chengeInput } from "../redux/actions/index";
+import inputSlice from "../redux/reducers/inputReducer";
+import todoSlice from "../redux/reducers/todoReducer";
 
 export default function Input() {
   let inputText = useSelector((state) => state.input);
@@ -9,13 +10,13 @@ export default function Input() {
 
   const onChange = (event) => {
     const inputText = event.target.value;
-    dispatch(chengeInput(inputText));
+    dispatch(inputSlice.actions.CHANGE_INPUT(inputText));
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(addTodo(inputText));
-    dispatch(chengeInput(""));
+    dispatch(todoSlice.actions.ADD_TODO(inputText));
+    dispatch(inputSlice.actions.CHANGE_INPUT(""));
   };
 
   return (

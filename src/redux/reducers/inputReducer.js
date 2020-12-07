@@ -1,12 +1,11 @@
-import { CHANGE_INPUT } from "../types";
+import { createSlice } from "@reduxjs/toolkit";
 
-const inputReducer = (state = "", action) => {
-  switch (action.type) {
-    case CHANGE_INPUT:
-      return action.text;
-    default:
-      return state;
-  }
-};
+const inputSlice = createSlice({
+  name: "input",
+  initialState: "",
+  reducers: {
+    CHANGE_INPUT: (state, action) => action.payload,
+  },
+});
 
-export default inputReducer;
+export default inputSlice;
